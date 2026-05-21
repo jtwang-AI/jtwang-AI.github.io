@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jintao Wang - Academic Homepage</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #4b5563;
+      --line: #333;
+      --link: #1687a7;
+      --paper: #fff;
+      --page: #ececec;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(1820px, calc(100% - 72px));
+      margin: 48px auto;
+      background: var(--paper);
+      padding: 28px 48px 42px;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+    }
+
+    .lang-switch button {
+      border: 1px solid #bbb;
+      background: #fff;
+      color: #222;
+      cursor: pointer;
+      font: 700 13px/1 Arial, "Noto Sans SC", sans-serif;
+      padding: 8px 12px;
+      border-radius: 3px;
+    }
+
+    .lang-switch button.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(220px, 320px) 1fr;
+      gap: clamp(42px, 8vw, 210px);
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto 22px;
+      padding: 0 0 4px;
+    }
+
+    .portrait {
+      width: 240px;
+      height: 320px;
+      object-fit: cover;
+      object-position: 50% 32%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(38px, 4vw, 58px);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .title-line {
+      display: block;
+      margin: 12px 0;
+      font-size: clamp(24px, 2.3vw, 34px);
+      line-height: 1.25;
+    }
+
+    .contact {
+      margin-top: 18px;
+      font-size: 20px;
+    }
+
+    .section {
+      border-top: 2px solid var(--line);
+      padding-top: 22px;
+      margin-top: 28px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    ul {
+      margin: 0 0 0 32px;
+      padding-left: 24px;
+    }
+
+    li { margin: 7px 0; }
+
+    p { margin: 0 0 18px; }
+
+    .repo-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .repo {
+      border-left: 4px solid #222;
+      padding-left: 16px;
+    }
+
+    .repo strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    .repo span {
+      color: var(--muted);
+      font-size: 17px;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+    }
+
+    .upload-box {
+      border: 2px dashed #8c8c8c;
+      padding: 24px;
+      background: #fafafa;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+    }
+
+    .upload-box label {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .upload-box input { display: none; }
+
+    .file-list {
+      margin-top: 16px;
+      color: #222;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .footer {
+      color: #555;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-size: 14px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid #777;
+    }
+
+    [data-lang="en"] .zh,
+    [data-lang="zh"] .en { display: none; }
+
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+      .page {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        padding: 18px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: left;
+      }
+      .portrait {
+        width: 190px;
+        height: 254px;
+      }
+      h1 { font-size: 34px; }
+      h2 { font-size: 24px; }
+      ul {
+        margin-left: 18px;
+        padding-left: 18px;
+      }
+    }
+  </style>
+</head>
+<body data-lang="zh">
+  <main class="page">
+    <div class="lang-switch" aria-label="Language switch">
+      <button type="button" class="active" data-set-lang="zh">中文</button>
+      <button type="button" data-set-lang="en">English</button>
+    </div>
+
+    <header class="hero">
+      <img class="portrait" src="assets/profile.png" alt="Jintao Wang portrait">
+      <div>
+        <h1>
+          <span class="zh">王金涛</span>
+          <span class="en">Jintao Wang</span>
+        </h1>
+        <a class="title-line zh" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
+        <a class="title-line en" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
+        <div class="contact">
+          <div class="zh">研究方向：多智能体强化学习、海上无人系统协同救援、图像分割与智能优化。</div>
+          <div class="en">Research interests: multi-agent reinforcement learning, cooperative maritime rescue for USVs, image segmentation, and intelligent optimization.</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2><span class="zh">新闻</span><span class="en">News</span></h2>
+      <ul class="zh">
+        <li>主页已发布至 GitHub Pages：<a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>。</li>
+        <li>公开项目围绕多智能体协同、海上无人艇救援和图像分割展开。</li>
+        <li>主页支持中文与英文切换，并提供 PDF、ZIP 等材料选择入口。</li>
+      </ul>
+      <ul class="en">
+        <li>The homepage is published on GitHub Pages: <a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>.</li>
+        <li>Public projects focus on multi-agent cooperation, USV rescue, and image segmentation.</li>
+        <li>The site supports Chinese/English switching and provides a PDF/ZIP material selection interface.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2><span class="zh">个人简介</span><span class="en">Brief Biography</span></h2>
+      <p class="zh">我关注智能体协同决策、无人系统任务规划、海上救援场景建模以及图像智能处理。当前公开代码主要包含 HACo-SafeMARL、HMORL-RESCUE、无人艇协同救援和 C-KPFCM 图像分割等方向。</p>
+      <p class="en">My work focuses on cooperative decision-making for intelligent agents, unmanned system planning, maritime rescue modeling, and intelligent image processing. Public repositories include HACo-SafeMARL, HMORL-RESCUE, cooperative maritime rescue for USVs, and C-KPFCM image segmentation.</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="zh">精选项目</span><span class="en">Selected Repositories</span> <a href="https://github.com/jtwang-AI?tab=repositories">[FULL LIST]</a></h2>
+      <div class="repo-list">
+        <div class="repo">
+          <strong><a href="https://github.com/jtwang-AI/HACo-SafeMARL">HACo-SafeMARL</a></strong>
+          <span class="zh">面向安全约束场景的多智能体强化学习项目。</span>
+          <span class="en">Multi-agent reinforcement learning project for safety-constrained scenarios.</span>
+        </div>
+        <div class="repo">
+          <strong><a href="https://github.com/jtwang-AI/Cooperative-maritime-rescue-for-USVs">Cooperative-maritime-rescue-for-USVs</a></strong>
+          <span class="zh">无人艇协同海上救援任务建模与算法实现。</span>
+          <span class="en">Modeling and algorithms for cooperative maritime rescue with USVs.</span>
+        </div>
+        <div class="repo">
+          <strong><a href="https://github.com/jtwang-AI/HMORL-RESCUE">HMORL-RESCUE</a></strong>
+          <span class="zh">面向救援任务的多目标强化学习研究代码。</span>
+          <span class="en">Multi-objective reinforcement learning code for rescue missions.</span>
+        </div>
+        <div class="repo">
+          <strong><a href="https://github.com/jtwang-AI/Image-Segmentation-C-KPFCM">Image-Segmentation-C-KPFCM</a></strong>
+          <span class="zh">基于 C-KPFCM 的图像分割方法实现。</span>
+          <span class="en">Implementation of image segmentation based on C-KPFCM.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2><span class="zh">上传材料</span><span class="en">Upload Materials</span></h2>
+      <div class="upload-box" id="dropZone">
+        <p class="zh">可选择 PDF、ZIP、Word、Excel、PPT 等文件。当前为 GitHub Pages 静态页面，文件只会在浏览器中显示选择结果，不会自动保存到服务器。</p>
+        <p class="en">Select PDF, ZIP, Word, Excel, PPT, and related files. This is a static GitHub Pages site, so selected files are shown locally in the browser and are not automatically stored on a server.</p>
+        <label>
+          <span class="zh">选择文件</span>
+          <span class="en">Choose Files</span>
+          <input id="fileInput" type="file" multiple accept=".pdf,.zip,.rar,.doc,.docx,.txt,.csv,.xlsx,.ppt,.pptx">
+        </label>
+        <div class="file-list" id="fileList"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="zh">© 2026 王金涛。页面托管于 GitHub Pages。</span>
+      <span class="en">© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
+    </footer>
+  </main>
+
+  <script>
+    const body = document.body;
+    const langButtons = document.querySelectorAll("[data-set-lang]");
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const lang = button.dataset.setLang;
+        body.dataset.lang = lang;
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        langButtons.forEach((item) => item.classList.toggle("active", item === button));
+      });
+    });
+
+    const input = document.getElementById("fileInput");
+    const fileList = document.getElementById("fileList");
+    const renderFiles = (files) => {
+      if (!files.length) {
+        fileList.textContent = "";
+        return;
+      }
+      fileList.innerHTML = Array.from(files)
+        .map((file) => `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`)
+        .join("<br>");
+    };
+    input.addEventListener("change", () => renderFiles(input.files));
+  </script>
+</body>
+</html>
