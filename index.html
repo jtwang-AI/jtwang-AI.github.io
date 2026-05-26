@@ -3,292 +3,616 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jintao Wang - Academic Homepage</title>
+  <title>汪金涛 | Jintao Wang</title>
   <style>
     :root {
-      --ink: #111;
-      --muted: #4b5563;
-      --line: #333;
-      --link: #1687a7;
+      --ink: #222;
+      --muted: #68717d;
+      --blue: #1769aa;
+      --blue-dark: #0d467a;
+      --gold: #c9912b;
+      --soft: #eef4f8;
       --paper: #fff;
-      --page: #ececec;
+      --line: #d8e0e6;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: var(--page);
       color: var(--ink);
-      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
-      font-size: 19px;
-      line-height: 1.55;
+      background:
+        radial-gradient(circle at 18% 6%, rgba(23, 105, 170, .10), transparent 30%),
+        linear-gradient(180deg, #f5f8fb 0%, #edf2f6 44%, #f7f7f7 100%);
+      font-family: "Noto Serif SC", "Songti SC", Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.75;
     }
 
     a {
-      color: var(--link);
+      color: var(--blue);
+      text-decoration: none;
       font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
-    .page {
-      width: min(1820px, calc(100% - 72px));
-      margin: 48px auto;
-      background: var(--paper);
-      padding: 28px 48px 42px;
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(31, 48, 71, .07);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      color: var(--blue-dark);
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue-dark), #2f95c8);
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #2c3a48;
+      font-weight: 700;
     }
 
     .lang-switch {
       display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 6px;
+      padding-left: 8px;
+      border-left: 1px solid var(--line);
+    }
+
+    .lang-switch button,
+    .welcome-card button,
+    .upload-box label {
+      border: 0;
+      cursor: pointer;
       font-family: Arial, "Noto Sans SC", sans-serif;
+      font-weight: 700;
     }
 
     .lang-switch button {
-      border: 1px solid #bbb;
-      background: #fff;
-      color: #222;
-      cursor: pointer;
-      font: 700 13px/1 Arial, "Noto Sans SC", sans-serif;
-      padding: 8px 12px;
-      border-radius: 3px;
+      background: #edf3f7;
+      color: var(--blue-dark);
+      padding: 7px 10px;
+      border-radius: 4px;
     }
 
     .lang-switch button.active {
-      background: #111;
       color: #fff;
-      border-color: #111;
+      background: var(--blue-dark);
     }
 
     .hero {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 560px;
+      margin: 0 auto;
+      padding: 56px 0 42px;
       display: grid;
-      grid-template-columns: minmax(220px, 320px) 1fr;
-      gap: clamp(42px, 8vw, 210px);
+      grid-template-columns: 1fr 330px;
+      gap: 56px;
       align-items: center;
-      max-width: 1180px;
-      margin: 0 auto 22px;
-      padding: 0 0 4px;
     }
 
-    .portrait {
-      width: 240px;
-      height: 320px;
-      object-fit: cover;
-      object-position: 50% 32%;
-      display: block;
-      margin: 0 auto;
+    .hero-kicker {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
     }
 
     h1 {
-      margin: 0 0 20px;
-      font-size: clamp(38px, 4vw, 58px);
-      line-height: 1.08;
-      font-weight: 800;
+      margin: 0;
+      color: #12263a;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.12;
       letter-spacing: 0;
     }
 
-    .title-line {
-      display: block;
-      margin: 12px 0;
-      font-size: clamp(24px, 2.3vw, 34px);
-      line-height: 1.25;
+    .hero-subtitle {
+      margin: 18px 0 0;
+      max-width: 760px;
+      color: #405063;
+      font-size: 21px;
+      line-height: 1.65;
     }
 
-    .contact {
-      margin-top: 18px;
-      font-size: 20px;
-    }
-
-    .section {
-      border-top: 2px solid var(--line);
-      padding-top: 22px;
-      margin-top: 28px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 30px;
-      line-height: 1.15;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    ul {
-      margin: 0 0 0 32px;
-      padding-left: 24px;
-    }
-
-    li { margin: 7px 0; }
-
-    p { margin: 0 0 18px; }
-
-    .repo-list {
-      display: grid;
+    .hero-actions {
+      display: flex;
       gap: 14px;
-      margin-top: 8px;
-    }
-
-    .repo {
-      border-left: 4px solid #222;
-      padding-left: 16px;
-    }
-
-    .repo strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 2px;
-    }
-
-    .repo span {
-      color: var(--muted);
-      font-size: 17px;
+      flex-wrap: wrap;
+      margin-top: 28px;
       font-family: Arial, "Noto Sans SC", sans-serif;
     }
 
-    .upload-box {
-      border: 2px dashed #8c8c8c;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 16px;
+      border-radius: 4px;
+      color: #fff;
+      background: var(--blue-dark);
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      color: var(--blue-dark);
+      background: #fff;
+      border: 1px solid #b8c9d6;
+    }
+
+    .profile-panel {
+      background: #fff;
+      padding: 18px;
+      border: 1px solid var(--line);
+      box-shadow: 0 22px 48px rgba(28, 49, 70, .16);
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 50% 30%;
+      display: block;
+    }
+
+    .profile-caption {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: #3b4b59;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 44px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 46px rgba(28, 49, 70, .08);
+    }
+
+    .section {
+      padding: 44px 52px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section:first-child { border-top: 0; }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #152638;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-family: Arial, "Noto Sans SC", sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .idea-grid,
+    .repo-grid,
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .idea-card,
+    .repo-card,
+    .course-card {
+      min-height: 150px;
+      padding: 22px;
+      background: #f8fbfd;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+    }
+
+    .idea-card h3,
+    .repo-card h3,
+    .course-card h3 {
+      margin: 0 0 10px;
+      color: var(--blue-dark);
+      font-size: 21px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .idea-card p,
+    .repo-card p,
+    .course-card p,
+    .bio p,
+    .news li {
+      margin: 0;
+      color: #334155;
+    }
+
+    .bio {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .bio-box {
+      background: linear-gradient(180deg, #f7fbff, #fff);
+      border: 1px solid var(--line);
       padding: 24px;
-      background: #fafafa;
+    }
+
+    .stats {
+      display: grid;
+      gap: 12px;
+      font-family: Arial, "Noto Sans SC", sans-serif;
+    }
+
+    .stat {
+      padding: 18px;
+      background: var(--blue-dark);
+      color: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .news {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .news li {
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      background: #fbfaf7;
+    }
+
+    .upload-box {
+      padding: 24px;
+      background: #f8fbfd;
+      border: 2px dashed #9ab3c6;
       font-family: Arial, "Noto Sans SC", sans-serif;
     }
 
     .upload-box label {
-      display: inline-block;
-      background: #111;
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      min-height: 42px;
       padding: 10px 16px;
-      border-radius: 3px;
-      cursor: pointer;
-      font-weight: 700;
-      margin-top: 6px;
+      color: #fff;
+      background: var(--blue-dark);
+      border-radius: 4px;
     }
 
     .upload-box input { display: none; }
 
     .file-list {
-      margin-top: 16px;
-      color: #222;
-      font-size: 15px;
-      line-height: 1.45;
+      margin-top: 14px;
+      color: #2d3748;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .footer {
-      color: #555;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 26px 0 40px;
+      color: #526170;
+      text-align: center;
       font-family: Arial, "Noto Sans SC", sans-serif;
       font-size: 14px;
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid #777;
+    }
+
+    .welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(8, 22, 35, .54);
+    }
+
+    .welcome.hidden { display: none; }
+
+    .welcome-card {
+      width: min(560px, 100%);
+      background: #fff;
+      padding: 34px;
+      border-top: 6px solid var(--blue-dark);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .28);
+      text-align: center;
+    }
+
+    .welcome-card h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .welcome-card p {
+      margin: 0 0 22px;
+      color: #425063;
+    }
+
+    .welcome-card button {
+      min-width: 130px;
+      padding: 11px 18px;
+      color: #fff;
+      background: var(--blue-dark);
+      border-radius: 4px;
+      font-size: 15px;
     }
 
     [data-lang="en"] .zh,
     [data-lang="zh"] .en { display: none; }
 
-    @media (max-width: 760px) {
-      body { font-size: 17px; }
-      .page {
-        width: calc(100% - 24px);
-        margin: 12px auto;
-        padding: 18px;
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+      .nav-links {
+        justify-content: flex-start;
+        gap: 14px;
       }
       .hero {
+        min-height: auto;
         grid-template-columns: 1fr;
-        gap: 24px;
-        text-align: left;
+        gap: 28px;
+        padding-top: 36px;
       }
-      .portrait {
-        width: 190px;
-        height: 254px;
+      .profile-panel {
+        max-width: 330px;
       }
-      h1 { font-size: 34px; }
-      h2 { font-size: 24px; }
-      ul {
-        margin-left: 18px;
-        padding-left: 18px;
+      .section {
+        padding: 30px 22px;
       }
+      .idea-grid,
+      .repo-grid,
+      .course-grid,
+      .bio {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body { font-size: 16px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 25px; }
+      .hero-subtitle { font-size: 18px; }
+      .welcome-card { padding: 26px 20px; }
     }
   </style>
 </head>
 <body data-lang="zh">
-  <main class="page">
-    <div class="lang-switch" aria-label="Language switch">
-      <button type="button" class="active" data-set-lang="zh">中文</button>
-      <button type="button" data-set-lang="en">English</button>
+  <div class="welcome" id="welcome">
+    <div class="welcome-card">
+      <h2><span class="zh">欢迎访问</span><span class="en">Welcome</span></h2>
+      <p class="zh">汪金涛个人主页：人工智能、群体智能与协同计算。</p>
+      <p class="en">Jintao Wang's homepage for artificial intelligence, swarm intelligence, and collaborative computing.</p>
+      <button type="button" id="closeWelcome"><span class="zh">进入主页</span><span class="en">Enter</span></button>
     </div>
+  </div>
 
-    <header class="hero">
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Homepage">
+        <span class="brand-mark">AI</span>
+        <span><span class="zh">汪金涛主页</span><span class="en">Jintao Wang</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#ideas"><span class="zh">学术思想</span><span class="en">Ideas</span></a>
+        <a href="#bio"><span class="zh">个人简介</span><span class="en">Biography</span></a>
+        <a href="#projects"><span class="zh">研究项目</span><span class="en">Projects</span></a>
+        <a href="#materials"><span class="zh">材料上传</span><span class="en">Materials</span></a>
+        <a href="https://github.com/jtwang-AI?tab=repositories">GitHub</a>
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" class="active" data-set-lang="zh">中文</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <p class="hero-kicker">
+        <span class="zh">人工智能 · 群体智能 · 协同计算</span>
+        <span class="en">Artificial Intelligence · Swarm Intelligence · Collaborative Computing</span>
+      </p>
+      <h1><span class="zh">汪金涛</span><span class="en">Jintao Wang</span></h1>
+      <p class="hero-subtitle zh">皖江工学院人工智能教研室主任，河海大学博士，长期关注群体智能、协同计算与人工智能应用研究。</p>
+      <p class="hero-subtitle en">Director of the Artificial Intelligence Teaching and Research Section at Wanjiang University of Technology, Ph.D. from Hohai University, focusing on swarm intelligence, collaborative computing, and AI applications.</p>
+      <div class="hero-actions">
+        <a class="button" href="#bio"><span class="zh">查看简介</span><span class="en">View Biography</span></a>
+        <a class="button secondary" href="#projects"><span class="zh">研究项目</span><span class="en">Research Projects</span></a>
+      </div>
+    </div>
+    <aside class="profile-panel">
       <img class="portrait" src="assets/profile.png" alt="Jintao Wang portrait">
-      <div>
-        <h1>
-          <span class="zh">汪金涛</span>
-          <span class="en">Jintao Wang</span>
-        </h1>
-        <a class="title-line zh" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
-        <a class="title-line en" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
-        <div class="contact">
-          <div class="zh">研究方向：多智能体强化学习、海上无人系统协同救援、图像分割与智能优化。</div>
-          <div class="en">Research interests: multi-agent reinforcement learning, cooperative maritime rescue for USVs, image segmentation, and intelligent optimization.</div>
-        </div>
+      <div class="profile-caption">
+        <strong><span class="zh">汪金涛</span><span class="en">Jintao Wang</span></strong><br>
+        <span class="zh">皖江工学院 · 计算机科学与人工智能</span>
+        <span class="en">Wanjiang University of Technology · Computer Science and AI</span>
       </div>
-    </header>
+    </aside>
+  </section>
 
-    <section class="section">
-      <h2><span class="zh">新闻</span><span class="en">News</span></h2>
-      <ul class="zh">
-        <li>主页已发布至 GitHub Pages：<a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>。</li>
-        <li>公开项目围绕多智能体协同、海上无人艇救援和图像分割展开。</li>
-        <li>主页支持中文与英文切换，并提供 PDF、ZIP 等材料选择入口。</li>
-      </ul>
-      <ul class="en">
-        <li>The homepage is published on GitHub Pages: <a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>.</li>
-        <li>Public projects focus on multi-agent cooperation, USV rescue, and image segmentation.</li>
-        <li>The site supports Chinese/English switching and provides a PDF/ZIP material selection interface.</li>
-      </ul>
+  <main class="page">
+    <section class="section" id="ideas">
+      <div class="section-title">
+        <h2><span class="zh">学术思想</span><span class="en">Academic Ideas</span></h2>
+        <span>Research Philosophy</span>
+      </div>
+      <div class="idea-grid">
+        <article class="idea-card">
+          <h3><span class="zh">面向真实问题</span><span class="en">Real Problems</span></h3>
+          <p class="zh">围绕无人系统、智能救援、模式识别等实际应用场景开展算法研究。</p>
+          <p class="en">Developing algorithms for practical scenarios such as unmanned systems, intelligent rescue, and pattern recognition.</p>
+        </article>
+        <article class="idea-card">
+          <h3><span class="zh">强调协同智能</span><span class="en">Collaborative Intelligence</span></h3>
+          <p class="zh">关注群体智能体之间的协作、约束、鲁棒性和任务分配机制。</p>
+          <p class="en">Studying coordination, constraints, robustness, and task allocation among intelligent agents.</p>
+        </article>
+        <article class="idea-card">
+          <h3><span class="zh">服务教学科研</span><span class="en">Teaching and Research</span></h3>
+          <p class="zh">将人工智能、机器学习和深度学习课程建设与科研方向联动。</p>
+          <p class="en">Connecting AI, machine learning, and deep learning teaching with active research directions.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="section">
-      <h2><span class="zh">个人简介</span><span class="en">Brief Biography</span></h2>
-      <p class="zh">汪金涛，男，汉族，中共党员，河海大学博士，皖江工学院人工智能教研室主任，校中青年骨干教师，“双师双能”型教师。入选2024年安徽省高校优秀青年教师培育项目。参与国家科技创新2030新一代人工智能重大项目课题，主持安徽省高校科研重大项目1项，省市重点实验室开放课题项目各1项；主持省级质量工程3项。中国计算机学会会员，中国图像图形学会会员。</p>
-      <p class="zh">主要研究方向：群体智能与协同计算，人工智能。主讲课程：人工智能、Python程序设计、机器学习、深度学习与神经网络等。</p>
-      <p class="en">Jintao Wang received the Ph.D. degree from Hohai University. He is the Director of the Artificial Intelligence Teaching and Research Section at Wanjiang University of Technology, a young and middle-aged backbone teacher of the university, and a dual-qualified teacher. He was selected for the 2024 Anhui Provincial Outstanding Young Teacher Training Program for Higher Education Institutions. He has participated in a National Science and Technology Innovation 2030 Major Project on New Generation Artificial Intelligence, led one major scientific research project of Anhui higher education institutions, one open project from a provincial key laboratory, one open project from a municipal key laboratory, and three provincial quality engineering projects. He is a member of the China Computer Federation and the China Society of Image and Graphics.</p>
-      <p class="en">His main research interests include swarm intelligence, collaborative computing, and artificial intelligence. He teaches courses including Artificial Intelligence, Python Programming, Machine Learning, Deep Learning, and Neural Networks.</p>
-    </section>
-
-    <section class="section">
-      <h2><span class="zh">精选项目</span><span class="en">Selected Repositories</span> <a href="https://github.com/jtwang-AI?tab=repositories">[FULL LIST]</a></h2>
-      <div class="repo-list">
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/HACo-SafeMARL">HACo-SafeMARL</a></strong>
-          <span class="zh">面向安全约束场景的多智能体强化学习项目。</span>
-          <span class="en">Multi-agent reinforcement learning project for safety-constrained scenarios.</span>
+    <section class="section" id="bio">
+      <div class="section-title">
+        <h2><span class="zh">个人简介</span><span class="en">Biography</span></h2>
+        <span>About</span>
+      </div>
+      <div class="bio">
+        <div class="bio-box">
+          <p class="zh">汪金涛，男，汉族，中共党员，河海大学博士，皖江工学院人工智能教研室主任，校中青年骨干教师，“双师双能”型教师。入选2024年安徽省高校优秀青年教师培育项目。参与国家科技创新2030新一代人工智能重大项目课题，主持安徽省高校科研重大项目1项，省市重点实验室开放课题项目各1项；主持省级质量工程3项。中国计算机学会会员，中国图像图形学会会员。</p>
+          <p class="zh">主要研究方向：群体智能与协同计算，人工智能。主讲课程：人工智能、Python程序设计、机器学习、深度学习与神经网络等。</p>
+          <p class="en">Jintao Wang received the Ph.D. degree from Hohai University. He is the Director of the Artificial Intelligence Teaching and Research Section at Wanjiang University of Technology, a young and middle-aged backbone teacher of the university, and a dual-qualified teacher. He was selected for the 2024 Anhui Provincial Outstanding Young Teacher Training Program for Higher Education Institutions. He has participated in a National Science and Technology Innovation 2030 Major Project on New Generation Artificial Intelligence, led one major scientific research project of Anhui higher education institutions, one open project from a provincial key laboratory, one open project from a municipal key laboratory, and three provincial quality engineering projects. He is a member of the China Computer Federation and the China Society of Image and Graphics.</p>
+          <p class="en">His main research interests include swarm intelligence, collaborative computing, and artificial intelligence. He teaches courses including Artificial Intelligence, Python Programming, Machine Learning, Deep Learning, and Neural Networks.</p>
         </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/Cooperative-maritime-rescue-for-USVs">Cooperative-maritime-rescue-for-USVs</a></strong>
-          <span class="zh">无人艇协同海上救援任务建模与算法实现。</span>
-          <span class="en">Modeling and algorithms for cooperative maritime rescue with USVs.</span>
-        </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/HMORL-RESCUE">HMORL-RESCUE</a></strong>
-          <span class="zh">面向救援任务的多目标强化学习研究代码。</span>
-          <span class="en">Multi-objective reinforcement learning code for rescue missions.</span>
-        </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/Image-Segmentation-C-KPFCM">Image-Segmentation-C-KPFCM</a></strong>
-          <span class="zh">基于 C-KPFCM 的图像分割方法实现。</span>
-          <span class="en">Implementation of image segmentation based on C-KPFCM.</span>
+        <div class="stats">
+          <div class="stat"><strong>2024</strong><span class="zh">安徽省高校优秀青年教师培育项目</span><span class="en">Anhui Outstanding Young Teacher Training Program</span></div>
+          <div class="stat"><strong>3</strong><span class="zh">省级质量工程项目</span><span class="en">Provincial quality engineering projects</span></div>
+          <div class="stat"><strong>CCF</strong><span class="zh">中国计算机学会会员</span><span class="en">China Computer Federation member</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2><span class="zh">上传材料</span><span class="en">Upload Materials</span></h2>
-      <div class="upload-box" id="dropZone">
+      <div class="section-title">
+        <h2><span class="zh">学术风格</span><span class="en">Academic Style</span></h2>
+        <span>Style</span>
+      </div>
+      <ul class="news">
+        <li><span class="zh">理论建模与工程应用并重，关注算法在真实复杂环境中的可解释性与可用性。</span><span class="en">Balancing theoretical modeling and engineering applications, with attention to explainability and usability in complex environments.</span></li>
+        <li><span class="zh">重视跨学科融合，将智能优化、模式识别、无人系统和协同决策结合起来。</span><span class="en">Emphasizing interdisciplinary integration across intelligent optimization, pattern recognition, unmanned systems, and collaborative decision-making.</span></li>
+        <li><span class="zh">坚持科研反哺教学，推动人工智能课程体系和实践项目建设。</span><span class="en">Using research to support teaching and to strengthen AI curriculum and practical projects.</span></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2><span class="zh">主讲课程</span><span class="en">Courses</span></h2>
+        <span>Teaching</span>
+      </div>
+      <div class="course-grid">
+        <div class="course-card"><h3><span class="zh">人工智能</span><span class="en">Artificial Intelligence</span></h3><p class="zh">基础理论、典型算法与应用实践。</p><p class="en">Foundations, representative algorithms, and applications.</p></div>
+        <div class="course-card"><h3><span class="zh">Python程序设计</span><span class="en">Python Programming</span></h3><p class="zh">面向工程实践的程序设计能力训练。</p><p class="en">Programming training for engineering practice.</p></div>
+        <div class="course-card"><h3><span class="zh">机器学习与深度学习</span><span class="en">ML and Deep Learning</span></h3><p class="zh">模型、神经网络与智能系统开发。</p><p class="en">Models, neural networks, and intelligent system development.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-title">
+        <h2><span class="zh">研究项目</span><span class="en">Research Projects</span></h2>
+        <span><a href="https://github.com/jtwang-AI?tab=repositories">Full List</a></span>
+      </div>
+      <div class="repo-grid">
+        <article class="repo-card">
+          <h3><a href="https://github.com/jtwang-AI/HACo-SafeMARL">HACo-SafeMARL</a></h3>
+          <p class="zh">面向安全约束场景的多智能体强化学习项目。</p>
+          <p class="en">Multi-agent reinforcement learning for safety-constrained scenarios.</p>
+        </article>
+        <article class="repo-card">
+          <h3><a href="https://github.com/jtwang-AI/Cooperative-maritime-rescue-for-USVs">USV Rescue</a></h3>
+          <p class="zh">无人艇协同海上救援任务建模与算法实现。</p>
+          <p class="en">Modeling and algorithms for cooperative maritime rescue with USVs.</p>
+        </article>
+        <article class="repo-card">
+          <h3><a href="https://github.com/jtwang-AI/HMORL-RESCUE">HMORL-RESCUE</a></h3>
+          <p class="zh">面向救援任务的多目标强化学习研究代码。</p>
+          <p class="en">Multi-objective reinforcement learning code for rescue missions.</p>
+        </article>
+        <article class="repo-card">
+          <h3><a href="https://github.com/jtwang-AI/Image-Segmentation-C-KPFCM">C-KPFCM</a></h3>
+          <p class="zh">基于 C-KPFCM 的图像分割方法实现。</p>
+          <p class="en">Image segmentation implementation based on C-KPFCM.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="materials">
+      <div class="section-title">
+        <h2><span class="zh">材料上传</span><span class="en">Materials</span></h2>
+        <span>Files</span>
+      </div>
+      <div class="upload-box">
         <p class="zh">可选择 PDF、ZIP、Word、Excel、PPT 等文件。当前为 GitHub Pages 静态页面，文件只会在浏览器中显示选择结果，不会自动保存到服务器。</p>
-        <p class="en">Select PDF, ZIP, Word, Excel, PPT, and related files. This is a static GitHub Pages site, so selected files are shown locally in the browser and are not automatically stored on a server.</p>
+        <p class="en">Select PDF, ZIP, Word, Excel, PPT, and related files. This static GitHub Pages site can show selected files in the browser, but it cannot store uploads without a backend service.</p>
         <label>
           <span class="zh">选择文件</span>
           <span class="en">Choose Files</span>
@@ -297,12 +621,12 @@
         <div class="file-list" id="fileList"></div>
       </div>
     </section>
-
-    <footer class="footer">
-      <span class="zh">© 2026 汪金涛。页面托管于 GitHub Pages。</span>
-      <span class="en">© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
-    </footer>
   </main>
+
+  <footer class="footer">
+    <span class="zh">© 2026 汪金涛。页面托管于 GitHub Pages。</span>
+    <span class="en">© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
+  </footer>
 
   <script>
     const body = document.body;
@@ -314,6 +638,17 @@
         document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
         langButtons.forEach((item) => item.classList.toggle("active", item === button));
       });
+    });
+
+    const welcome = document.getElementById("welcome");
+    document.getElementById("closeWelcome").addEventListener("click", () => {
+      welcome.classList.add("hidden");
+    });
+
+    welcome.addEventListener("click", (event) => {
+      if (event.target === welcome) {
+        welcome.classList.add("hidden");
+      }
     });
 
     const input = document.getElementById("fileInput");
