@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,30 +37,6 @@
       margin: 48px auto;
       background: var(--paper);
       padding: 28px 48px 42px;
-    }
-
-    .lang-switch {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-bottom: 12px;
-      font-family: Arial, "Noto Sans SC", sans-serif;
-    }
-
-    .lang-switch button {
-      border: 1px solid #bbb;
-      background: #fff;
-      color: #222;
-      cursor: pointer;
-      font: 700 13px/1 Arial, "Noto Sans SC", sans-serif;
-      padding: 8px 12px;
-      border-radius: 3px;
-    }
-
-    .lang-switch button.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
     }
 
     .hero {
@@ -194,9 +170,6 @@
       border-top: 1px solid #777;
     }
 
-    [data-lang="en"] .zh,
-    [data-lang="zh"] .en { display: none; }
-
     @media (max-width: 760px) {
       body { font-size: 17px; }
       .page {
@@ -222,53 +195,36 @@
     }
   </style>
 </head>
-<body data-lang="zh">
+<body>
   <main class="page">
-    <div class="lang-switch" aria-label="Language switch">
-      <button type="button" class="active" data-set-lang="zh">中文</button>
-      <button type="button" data-set-lang="en">English</button>
-    </div>
-
     <header class="hero">
       <img class="portrait" src="assets/profile.png" alt="Jintao Wang portrait">
       <div>
-        <h1>
-          <span class="zh">汪金涛</span>
-          <span class="en">Jintao Wang</span>
-        </h1>
-        <a class="title-line zh" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
-        <a class="title-line en" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
+        <h1>Jintao Wang</h1>
+        <a class="title-line" href="https://github.com/jtwang-AI">GitHub: jtwang-AI</a>
         <div class="contact">
-          <div class="zh">研究方向：多智能体强化学习、海上无人系统协同救援、图像分割与智能优化。</div>
-          <div class="en">Research interests: multi-agent reinforcement learning, cooperative maritime rescue for USVs, image segmentation, and intelligent optimization.</div>
+          <div>Research interests: multi-agent reinforcement learning, cooperative maritime rescue for USVs, image segmentation, and intelligent optimization.</div>
         </div>
       </div>
     </header>
 
     <section class="section">
-      <h2><span class="zh">新闻</span><span class="en">News</span></h2>
-      <ul class="zh">
-        <li>主页已发布至 GitHub Pages：<a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>。</li>
-        <li>公开项目围绕多智能体协同、海上无人艇救援和图像分割展开。</li>
-        <li>主页支持中文与英文切换，并提供 PDF、ZIP 等材料选择入口。</li>
-      </ul>
-      <ul class="en">
+      <h2>News</h2>
+      <ul>
         <li>The homepage is published on GitHub Pages: <a href="https://jtwang-ai.github.io/">https://jtwang-ai.github.io/</a>.</li>
         <li>Public projects focus on multi-agent cooperation, USV rescue, and image segmentation.</li>
-        <li>The site supports Chinese/English switching and provides a PDF/ZIP material selection interface.</li>
+        <li>The site provides a PDF/ZIP material selection interface.</li>
       </ul>
     </section>
 
     <section class="section">
-      <h2><span class="zh">个人简介</span><span class="en">Brief Biography</span></h2>
-      <p class="zh">汪金涛，男，汉族，中共党员，河海大学博士，皖江工学院人工智能教研室主任，校中青年骨干教师，“双师双能”型教师。入选2024年安徽省高校优秀青年教师培育项目。参与国家科技创新2030新一代人工智能重大项目课题，主持安徽省高校科研重大项目1项，省市重点实验室开放课题项目各1项；主持省级质量工程3项。中国计算机学会会员，中国图像图形学会会员。</p>
-      <p class="zh">主要研究方向：群体智能与协同计算，人工智能。主讲课程：人工智能、Python程序设计、机器学习、深度学习与神经网络等。</p>
-      <p class="en">Jintao Wang received the Ph.D. degree from Hohai University. He is the Director of the Artificial Intelligence Teaching and Research Section at Wanjiang University of Technology, a young and middle-aged backbone teacher of the university, and a dual-qualified teacher. He was selected for the 2024 Anhui Provincial Outstanding Young Teacher Training Program for Higher Education Institutions. He has participated in a National Science and Technology Innovation 2030 Major Project on New Generation Artificial Intelligence, led one major scientific research project of Anhui higher education institutions, one open project from a provincial key laboratory, one open project from a municipal key laboratory, and three provincial quality engineering projects. He is a member of the China Computer Federation and the China Society of Image and Graphics.</p>
-      <p class="en">His main research interests include swarm intelligence, collaborative computing, and artificial intelligence. He teaches courses including Artificial Intelligence, Python Programming, Machine Learning, Deep Learning, and Neural Networks.</p>
+      <h2>Brief Biography</h2>
+      <p>Jintao Wang received the Ph.D. degree from Hohai University. He is the Director of the Artificial Intelligence Teaching and Research Section at Wanjiang University of Technology, a young and middle-aged backbone teacher of the university, and a dual-qualified teacher. He was selected for the 2024 Anhui Provincial Outstanding Young Teacher Training Program for Higher Education Institutions. He has participated in a National Science and Technology Innovation 2030 Major Project on New Generation Artificial Intelligence, led one major scientific research project of Anhui higher education institutions, one open project from a provincial key laboratory, one open project from a municipal key laboratory, and three provincial quality engineering projects. He is a member of the China Computer Federation and the China Society of Image and Graphics.</p>
+      <p>His main research interests include swarm intelligence, collaborative computing, and artificial intelligence. He teaches courses including Artificial Intelligence, Python Programming, Machine Learning, Deep Learning, and Neural Networks.</p>
     </section>
 
     <section class="section">
-      <h2><span class="zh">论文</span><span class="en">Publications</span></h2>
+      <h2>Publications</h2>
       <ol class="publication-list">
         <li>
           <strong>J. Wang</strong>, R. Wang, and W. Yue, "<a href="https://doi.org/10.1051/meca/2026010">AI and cloud computing integration for fault detection using deep learning models and autoencoders</a>," <em>Mechanics &amp; Industry</em>, vol. 27, Article 12, 2026. DOI: <a href="https://doi.org/10.1051/meca/2026010">10.1051/meca/2026010</a>.
@@ -280,39 +236,33 @@
     </section>
 
     <section class="section">
-      <h2><span class="zh">精选项目</span><span class="en">Selected Repositories</span> <a href="https://github.com/jtwang-AI?tab=repositories">[FULL LIST]</a></h2>
+      <h2>Selected Repositories <a href="https://github.com/jtwang-AI?tab=repositories">[FULL LIST]</a></h2>
       <div class="repo-list">
         <div class="repo">
           <strong><a href="https://github.com/jtwang-AI/HACo-SafeMARL">HACo-SafeMARL</a></strong>
-          <span class="zh">面向安全约束场景的多智能体强化学习项目。</span>
-          <span class="en">Multi-agent reinforcement learning project for safety-constrained scenarios.</span>
+          <span>Multi-agent reinforcement learning project for safety-constrained scenarios.</span>
         </div>
         <div class="repo">
           <strong><a href="https://github.com/jtwang-AI/Cooperative-maritime-rescue-for-USVs">Cooperative-maritime-rescue-for-USVs</a></strong>
-          <span class="zh">无人艇协同海上救援任务建模与算法实现。</span>
-          <span class="en">Modeling and algorithms for cooperative maritime rescue with USVs.</span>
+          <span>Modeling and algorithms for cooperative maritime rescue with USVs.</span>
         </div>
         <div class="repo">
           <strong><a href="https://github.com/jtwang-AI/HMORL-RESCUE">HMORL-RESCUE</a></strong>
-          <span class="zh">面向救援任务的多目标强化学习研究代码。</span>
-          <span class="en">Multi-objective reinforcement learning code for rescue missions.</span>
+          <span>Multi-objective reinforcement learning code for rescue missions.</span>
         </div>
         <div class="repo">
           <strong><a href="https://github.com/jtwang-AI/Image-Segmentation-C-KPFCM">Image-Segmentation-C-KPFCM</a></strong>
-          <span class="zh">基于 C-KPFCM 的图像分割方法实现。</span>
-          <span class="en">Implementation of image segmentation based on C-KPFCM.</span>
+          <span>Implementation of image segmentation based on C-KPFCM.</span>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2><span class="zh">上传材料</span><span class="en">Upload Materials</span></h2>
+      <h2>Upload Materials</h2>
       <div class="upload-box" id="dropZone">
-        <p class="zh">可选择 PDF、ZIP、Word、Excel、PPT 等文件。当前为 GitHub Pages 静态页面，文件只会在浏览器中显示选择结果，不会自动保存到服务器。</p>
-        <p class="en">Select PDF, ZIP, Word, Excel, PPT, and related files. This is a static GitHub Pages site, so selected files are shown locally in the browser and are not automatically stored on a server.</p>
+        <p>Select PDF, ZIP, Word, Excel, PPT, and related files. This is a static GitHub Pages site, so selected files are shown locally in the browser and are not automatically stored on a server.</p>
         <label>
-          <span class="zh">选择文件</span>
-          <span class="en">Choose Files</span>
+          <span>Choose Files</span>
           <input id="fileInput" type="file" multiple accept=".pdf,.zip,.rar,.doc,.docx,.txt,.csv,.xlsx,.ppt,.pptx">
         </label>
         <div class="file-list" id="fileList"></div>
@@ -320,23 +270,11 @@
     </section>
 
     <footer class="footer">
-      <span class="zh">© 2026 汪金涛。页面托管于 GitHub Pages。</span>
-      <span class="en">© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
+      <span>© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
     </footer>
   </main>
 
   <script>
-    const body = document.body;
-    const langButtons = document.querySelectorAll("[data-set-lang]");
-    langButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const lang = button.dataset.setLang;
-        body.dataset.lang = lang;
-        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        langButtons.forEach((item) => item.classList.toggle("active", item === button));
-      });
-    });
-
     const input = document.getElementById("fileInput");
     const fileList = document.getElementById("fileList");
     const renderFiles = (files) => {
