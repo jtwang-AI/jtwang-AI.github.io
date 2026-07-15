@@ -111,56 +111,6 @@
       padding-left: 4px;
     }
 
-    .repo-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 8px;
-    }
-
-    .repo {
-      border-left: 4px solid #222;
-      padding-left: 16px;
-    }
-
-    .repo strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 2px;
-    }
-
-    .repo span {
-      color: var(--muted);
-      font-size: 17px;
-      font-family: Arial, "Noto Sans SC", sans-serif;
-    }
-
-    .upload-box {
-      border: 2px dashed #8c8c8c;
-      padding: 24px;
-      background: #fafafa;
-      font-family: Arial, "Noto Sans SC", sans-serif;
-    }
-
-    .upload-box label {
-      display: inline-block;
-      background: #111;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 3px;
-      cursor: pointer;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    .upload-box input { display: none; }
-
-    .file-list {
-      margin-top: 16px;
-      color: #222;
-      font-size: 15px;
-      line-height: 1.45;
-    }
-
     .footer {
       color: #555;
       font-family: Arial, "Noto Sans SC", sans-serif;
@@ -234,58 +184,10 @@
       </ol>
     </section>
 
-    <section class="section">
-      <h2>Selected Repositories <a href="https://github.com/jtwang-AI?tab=repositories">[FULL LIST]</a></h2>
-      <div class="repo-list">
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/HACo-SafeMARL">HACo-SafeMARL</a></strong>
-          <span>Multi-agent reinforcement learning project for safety-constrained scenarios.</span>
-        </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/Cooperative-maritime-rescue-for-USVs">Cooperative-maritime-rescue-for-USVs</a></strong>
-          <span>Modeling and algorithms for cooperative maritime rescue with USVs.</span>
-        </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/HMORL-RESCUE">HMORL-RESCUE</a></strong>
-          <span>Multi-objective reinforcement learning code for rescue missions.</span>
-        </div>
-        <div class="repo">
-          <strong><a href="https://github.com/jtwang-AI/Image-Segmentation-C-KPFCM">Image-Segmentation-C-KPFCM</a></strong>
-          <span>Implementation of image segmentation based on C-KPFCM.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Upload Materials</h2>
-      <div class="upload-box" id="dropZone">
-        <p>Select PDF, ZIP, Word, Excel, PPT, and related files. This is a static GitHub Pages site, so selected files are shown locally in the browser and are not automatically stored on a server.</p>
-        <label>
-          <span>Choose Files</span>
-          <input id="fileInput" type="file" multiple accept=".pdf,.zip,.rar,.doc,.docx,.txt,.csv,.xlsx,.ppt,.pptx">
-        </label>
-        <div class="file-list" id="fileList"></div>
-      </div>
-    </section>
-
     <footer class="footer">
       <span>© 2026 Jintao Wang. Hosted on GitHub Pages.</span>
     </footer>
   </main>
 
-  <script>
-    const input = document.getElementById("fileInput");
-    const fileList = document.getElementById("fileList");
-    const renderFiles = (files) => {
-      if (!files.length) {
-        fileList.textContent = "";
-        return;
-      }
-      fileList.innerHTML = Array.from(files)
-        .map((file) => `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`)
-        .join("<br>");
-    };
-    input.addEventListener("change", () => renderFiles(input.files));
-  </script>
 </body>
 </html>
